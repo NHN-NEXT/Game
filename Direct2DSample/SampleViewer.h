@@ -3,6 +3,7 @@
 #define _USE_MATH_DEFINES
 #define DIRECTINPUT_VERSION 0x0800
 
+#include <list>
 #include <vector>
 #include <map>
 #include <string>

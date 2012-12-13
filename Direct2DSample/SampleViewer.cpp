@@ -94,7 +94,7 @@ void SampleViewer::SetSampleByDelta(int dir)
 		return;
 
 	SetSampleByIndex(_index + dir);
-
+	
 	_indexPrev = -dir;
 	_indexChange = 0;
 }
