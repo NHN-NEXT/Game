@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source">
+      <UniqueIdentifier>{c9d66f15-faeb-4aa2-9cef-0846e8b34963}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\SampleViewer">
+      <UniqueIdentifier>{97238cc3-da45-4f0a-9a97-1ae12c63a013}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Sample">
+      <UniqueIdentifier>{e2ece94a-0f06-4bd5-9a06-f3499f2d4c92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\DragDropSample">
+      <UniqueIdentifier>{1e3cd764-9202-4609-8b51-28c78ca6a18e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\AnimateSample">
+      <UniqueIdentifier>{0e549784-bbfc-4dd5-a3f6-638d9746cb9e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SampleViewer.h">
+      <Filter>Source\SampleViewer</Filter>
+    </ClInclude>
+    <ClInclude Include="Sample.h">
+      <Filter>Source\Sample</Filter>
+    </ClInclude>
+    <ClInclude Include="DragDropSample.h">
+      <Filter>Source\DragDropSample</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimateSample.h">
+      <Filter>Source\AnimateSample</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="WinMain.cpp">
+      <Filter>Source\SampleViewer</Filter>
+    </ClCompile>
+    <ClCompile Include="SampleViewer.cpp">
+      <Filter>Source\SampleViewer</Filter>
+    </ClCompile>
+    <ClCompile Include="Sample.cpp">
+      <Filter>Source\Sample</Filter>
+    </ClCompile>
+    <ClCompile Include="DragDropSample.cpp">
+      <Filter>Source\DragDropSample</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimateSample.cpp">
+      <Filter>Source\AnimateSample</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
