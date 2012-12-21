@@ -4,7 +4,8 @@
 #ifdef USEOPENGL
 //#pragma comment(lib,"gdi32.lib")
 #pragma comment(lib,"opengl32.lib")
-
+#include <GL/GL.h>
+#include <GL/GLU.h>
 #include "OpenGL.h"
 
 typedef int  (WINAPI * CHOOSEPIXELFORMAT_T) (HDC,CONST PIXELFORMATDESCRIPTOR*);
@@ -54,7 +55,7 @@ OpenGL::~OpenGL(void)
 
 bool OpenGL::Init( long hwnd )
 {
-	//GLFW ㅅ스 크대로 옮기기
+	//GLFW 소스 뭐가뭔지모르니깐 일단 그대로 옮기기
 	//이상한거
 	ChoosePixelFormat_t   = (CHOOSEPIXELFORMAT_T)
 		GetProcAddress( gdi32, "ChoosePixelFormat" );
@@ -86,18 +87,88 @@ bool OpenGL::Init( long hwnd )
 	thrd.WinID = GetCurrentThreadId();
 	thrd.Previous = NULL;
 	thrd.Next = NULL;
+/*
 
-	return false;
+	//데스크탑모드 보니 쓸모없는기능같다
+	DEVMODE dm;
+
+	//get desktop display mode
+	dm.dmSize = sizeof(DEVMODE);
+	(void) EnumDisplaySettings(NULL,ENUM_REGISTRY_SETTINGS,&dm);
+*/
+
+
+	return true;
 }
 
 void OpenGL::Release()
 {
-
+	if(GetCurrentThreadId() != thrd.WinID)
+		return;
+	
 }
 
 void OpenGL::Render()
 {
-
+	glBegin(GL_QUADS);
+	{
+		glColor3f(0.82, 0.41, 0.12);//this the color with which complete cube is drawn. 
+		glVertex3f(0,0 ,0 );
+		glVertex3f(5, 0, 0);
+		glVertex3f(5, 5, 0);
+		glVertex3f(0, 5, 0);
+	}
+	glEnd();
+	glBegin(GL_QUADS);
+	{
+		//face in yz plane
+		glColor3f(1, 0, 0);
+		glVertex3f(0, 0, 0);
+		glVertex3f(0, 0, 5);
+		glVertex3f(0, 5, 5);
+		glVertex3f(0, 5, 0);
+	}
+	glEnd();
+	glBegin(GL_QUADS);
+	{
+		//face in zx plance
+		glColor3f(1, 1, 0);
+		glVertex3f(0, 0, 0  );
+		glVertex3f(0, 0, 5);
+		glVertex3f(5, 0, 5);
+		glVertex3f(5, 0, 0);
+	}
+	glEnd();
+	glBegin(GL_QUADS);
+	{
+		//|| to xy plane.
+		glColor3f(1, 0, 1);
+		glVertex3f(0, 0, 5);
+		glVertex3f(5, 0, 5);
+		glVertex3f(5, 5, 5);
+		glVertex3f(0, 5, 5);
+	}
+	glEnd();
+	glBegin(GL_QUADS);
+	{
+		//|| to yz plane
+		glColor3f(1, .5, .5);
+		glVertex3f(5,0 ,0 );
+		glVertex3f(5, 0, 5);
+		glVertex3f(5, 5, 5);
+		glVertex3f(5, 5, 0);
+	}
+	glEnd();
+	glBegin(GL_QUADS);
+	{
+		//|| to zx plane
+		glColor3f(0.58, 0, 0.82);
+		glVertex3f(0, 5, 0  );
+		glVertex3f(0, 5, 5);
+		glVertex3f(5, 5, 5);
+		glVertex3f(5, 5, 0);
+	}
+	glEnd();
 }
 
 
