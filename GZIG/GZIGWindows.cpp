@@ -1,3 +1,4 @@
+#include "Resource.h"
 #ifdef USEWINDOW
 
 

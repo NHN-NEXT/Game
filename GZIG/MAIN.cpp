@@ -3,13 +3,14 @@
 #include "GZIGWindows.h"
 #include "Graphic.h"
 #include "DX.h"
+#include "OpenGL.h"
 #include "GLFW_OpenGL.h"
 #include "GLFW_OS.h"
 MAIN::MAIN(void)
 {
 #ifdef USEWINDOW
 	os = new GZIGWindows;
-	graphic = new DX;
+	graphic = new OpenGL;
 #endif // USEWINDOW
 #ifdef USEGLFW
 	os = new GLFW_OS;

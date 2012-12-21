@@ -2,9 +2,10 @@
 // Microsoft Visual C++ generated include file.
 // Used by GZIG.rc
 //
-//#define USEWINDOW
+#define USEWINDOW
 //#define USEDIRECTX10
-#define USEGLFW
+//#define USEGLFW
+#define USEOPENGL
 
 
 #define IDS_APP_TITLE			103
