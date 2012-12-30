@@ -85,6 +85,7 @@
     <ClInclude Include="OpenGL.h" />
     <ClInclude Include="OS.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="wglext.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Tutorial02.fx">

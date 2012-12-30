@@ -11,4 +11,3 @@ void main()
 	main.Loop();
 	main.Release();
 }
-

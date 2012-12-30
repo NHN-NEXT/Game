@@ -27,7 +27,7 @@ DX::~DX(void)
 {
 }
 
-bool DX::Init(long _hwnd)
+bool DX::Init(long _hwnd, long fake)
 {
 	hwnd = _hwnd;
 	   HRESULT hr = S_OK;

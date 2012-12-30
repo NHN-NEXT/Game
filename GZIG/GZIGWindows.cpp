@@ -63,16 +63,38 @@ void GZIGWindows::Init()
 	wcex.hCursor        = LoadCursor(NULL, IDC_ARROW);
 	wcex.hbrBackground  = (HBRUSH)(COLOR_WINDOW+1);
 	wcex.lpszMenuName   = NULL;
-	wcex.lpszClassName  = "myclass";
+	wcex.lpszClassName  = REALCLASSNAME;
 	wcex.hIconSm        = LoadIcon(mInstance, (LPCTSTR)IDI_APPLICATION);
 
 
 	RegisterClassEx(&wcex);
 
-	hWnd = CreateWindowEx(0,"myclass","windowname",WS_OVERLAPPEDWINDOW,CW_USEDEFAULT,CW_USEDEFAULT,CW_USEDEFAULT,CW_USEDEFAULT,NULL,NULL,mInstance,reinterpret_cast<LPVOID>(this));
+	hWnd = CreateWindowEx(0,REALCLASSNAME,"windowname",WS_OVERLAPPEDWINDOW,CW_USEDEFAULT,CW_USEDEFAULT,CW_USEDEFAULT,CW_USEDEFAULT,NULL,NULL,mInstance,reinterpret_cast<LPVOID>(this));
+/*
+
+	WNDCLASSEX wc;
+
+	wc.cbSize = sizeof(WNDCLASSEX);
+	wc.style =  CS_HREDRAW | CS_VREDRAW | CS_OWNDC | CS_DBLCLKS;
+	wc.lpfnWndProc = (WNDPROC) msgHandlerSimpleOpenGLClass;
+	wc.cbClsExtra = 0; wc.cbWndExtra = 0;
+	wc.hInstance = mInstance;
+	wc.hIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_APPLICATION));
+	wc.hIconSm = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_APPLICATION));
+	wc.hCursor = LoadCursor(NULL, IDC_ARROW);
+	wc.hbrBackground = (HBRUSH)(COLOR_MENUBAR+1);
+	wc.lpszMenuName = NULL;
+	wc.lpszClassName = SIMPLE_OPENGL_CLASS_NAME;
+
+	RegisterClassEx(&wc);
+
+	fake = CreateWindow(FAKECLASSNAME, "FAKE", WS_OVERLAPPEDWINDOW | WS_MAXIMIZE | WS_CLIPCHILDREN,
+		0, 0, CW_USEDEFAULT, CW_USEDEFAULT, NULL,
+		NULL, mInstance, NULL);//glew 초기화할라고 만든 가짜임 링크 참고 fake HWND for initilizing glew http://www.mbsoftworks.sk/index.php?page=tutorials&series=1&tutorial=2*/
+/*same size걍 체크해본거임
 	int a, b;
 	a = sizeof(hWnd);
-	b = sizeof(long);
+	b = sizeof(long);*/
 }
 
 void GZIGWindows::SetHWND( HWND hwnd )
@@ -106,6 +128,17 @@ int GZIGWindows::Loop()
 long GZIGWindows::GetHWNDinLongType()
 {
 	return (long)hWnd;
+}
+
+long GZIGWindows::GetFAKEinLongType()
+{
+	return (long)fake;
+}
+
+void GZIGWindows::Release()
+{
+	DestroyWindow(hWnd);
+	UnregisterClass(REALCLASSNAME,mInstance);
 }
 
 #endif // USEWINDOW

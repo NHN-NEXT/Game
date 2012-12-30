@@ -25,7 +25,7 @@ public:
 	ID3D10InputLayout*      g_pVertexLayout;
 	ID3D10Buffer*           g_pVertexBuffer;
 
-	bool Init(long hwnd);
+	bool Init(long hwnd, long fake);
 	void Render();
 	void Release();
 

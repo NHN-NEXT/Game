@@ -6,7 +6,8 @@
 //#define USEDIRECTX10
 //#define USEGLFW
 #define USEOPENGL
-
+#define REALCLASSNAME "realclass"
+#define FAKECLASSNAME "fakeclass"
 
 #define IDS_APP_TITLE			103
 

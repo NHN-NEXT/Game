@@ -34,7 +34,7 @@ void MAIN::OpenWindow()
 void MAIN::Init()
 {
 	os->Init();
-	graphic->Init((long)(os->GetHWNDinLongType()));
+	graphic->Init((long)(os->GetHWNDinLongType()),(long)(os->GetFAKEinLongType()));
 }
 
 void MAIN::Loop()
